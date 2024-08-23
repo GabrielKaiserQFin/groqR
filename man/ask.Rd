@@ -9,7 +9,7 @@ ask(text = NULL, ...)
 \arguments{
 \item{text}{The question to ask Groq.}
 
-\item{...}{Following arguments can be set manually or in .Reniv:
+\item{...}{Following arguments can be set manually or in .Renviron:
 \code{GROQ_API_KEY}is the GROQ API key.
 \code{model} Model choice. Default is mistral-7b-instruct.
 \code{systemRole} System role; Default is: "You are a helpful assistant

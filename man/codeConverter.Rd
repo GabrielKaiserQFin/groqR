@@ -14,7 +14,7 @@ If not provided, the function will attempt to read from the clipboard.}
 
 \item{to}{any programming language. Defaults to "Python".}
 
-\item{...}{Following arguments can be set manually or in .Reniv:
+\item{...}{Following arguments can be set manually or in .Renviron:
 \code{GROQ_API_KEY}is the GROQ API key.
 \code{model} Model choice. Default is mistral-7b-instruct.
 \code{systemRole} System role; Default is: "You are a helpful assistant

@@ -3,7 +3,7 @@
 #' Note: See also `clearChatSession`.
 #'
 #' @param text The question to ask Groq.
-#' @param ... Following arguments can be set manually or in .Reniv:
+#' @param ... Following arguments can be set manually or in .Renviron:
 #'            `GROQ_API_KEY`is the GROQ API key.
 #'            `model` Model choice. Default is mistral-7b-instruct.
 #'            `systemRole` System role; Default is: "You are a helpful assistant
@@ -29,6 +29,7 @@
 #'
 
 ask <- function(text = NULL, ...) {
+
   if (is.null(text)) text <- clipr::read_clip(allow_non_interactive = TRUE)
 
   return(APIcall(text, ...))

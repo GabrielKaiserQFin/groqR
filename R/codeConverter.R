@@ -8,7 +8,7 @@
 #' If not provided, the function will attempt to read from the clipboard.
 #' @param from any programming language. Defaults to "R".
 #' @param to any programming language. Defaults to "Python".
-#' @param ... Following arguments can be set manually or in .Reniv:
+#' @param ... Following arguments can be set manually or in .Renviron:
 #'            `GROQ_API_KEY`is the GROQ API key.
 #'            `model` Model choice. Default is mistral-7b-instruct.
 #'            `systemRole` System role; Default is: "You are a helpful assistant

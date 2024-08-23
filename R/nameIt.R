@@ -3,7 +3,7 @@
 #' @param code The code for which to give a variable name to its result.
 #' If not provided, it will use what's copied on the clipboard.
 #' @param namingConvention Defaults to "camelCase".
-#' @param ... Following arguments can be set manually or in .Reniv:
+#' @param ... Following arguments can be set manually or in .Renviron:
 #'            `GROQ_API_KEY`is the GROQ API key.
 #'            `model` Model choice. Default is mistral-7b-instruct.
 #'            `systemRole` System role; Default is: "You are a helpful assistant

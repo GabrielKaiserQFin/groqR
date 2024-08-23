@@ -1,7 +1,7 @@
 #' Get Groq Completions Endpoint
 #'
 #' @param prompt The prompt to generate completions for.
-#' @param ... Following arguments can be set manually or in .Reniv:
+#' @param ... Following arguments can be set manually or in .Renviron:
 #'            `GROQ_API_KEY`is the GROQ API key.
 #'            `model` Model choice. Default is mistral-7b-instruct.
 #'            `systemRole` System role; Default is: "You are a helpful assistant
@@ -12,8 +12,8 @@
 #'            random, and lower values are more deterministic.
 #'            `top_p` Nucleus sampling threshold, valued between 0 and 1.
 #'            `proxy` Default value is NULL.
-#'            `returnType` Default is 3, which returns the output to the 
-#'            clipboard and returns TRUE, type 2 is unchanged 
+#'            `returnType` Default is 3, which returns the output to the
+#'            clipboard and returns TRUE, type 2 is unchanged
 #'            and type 3 cats the output.
 #'
 #' @importFrom httr add_headers content content_type_json POST use_proxy
@@ -22,6 +22,11 @@
 #'
 
 APIcall <- function(prompt, ...) {
+
+  args <- list(...)
+  for (i in names(args)) {
+      assign(i, args[[i]])
+  }
 
   if (!exists("GROQ_API_KEY")) GROQ_API_KEY <- Sys.getenv("GROQ_API_KEY")
   if (!exists("systemRole")) systemRole <- Sys.getenv("GROQ_systemRole")
