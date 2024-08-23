@@ -7,8 +7,8 @@
 nameIt(code = NULL, namingConvention = "camelCase", ...)
 }
 \arguments{
-\item{code}{The code for which to give a variable name to its result. If not provided, it will
-use what's copied on the clipboard.}
+\item{code}{The code for which to give a variable name to its result.
+If not provided, it will use what's copied on the clipboard.}
 
 \item{namingConvention}{Defaults to "camelCase".}
 

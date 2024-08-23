@@ -1,7 +1,7 @@
 #' Groq: Create a Function or Variable Name
 #'
-#' @param code The code for which to give a variable name to its result. If not provided, it will
-#'   use what's copied on the clipboard.
+#' @param code The code for which to give a variable name to its result.
+#' If not provided, it will use what's copied on the clipboard.
 #' @param namingConvention Defaults to "camelCase".
 #' @param ... Following arguments can be set manually or in .Reniv:
 #'            `GROQ_API_KEY`is the GROQ API key.
@@ -11,7 +11,7 @@
 #'            `maxTokens` The maximum integer of completion tokens returned.
 #'            `temperature` The amount of randomness in the response,
 #'            valued between 0 inclusive and 2 exclusive. Higher values are more
-#'            random, and lower values are more deterministic. 
+#'            random, and lower values are more deterministic.
 #'            `top_p` Nucleus sampling threshold, valued between 0 and 1.
 #'            `proxy` Default value is NULL.
 #'

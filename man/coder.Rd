@@ -7,8 +7,8 @@
 coder(code = NULL, ...)
 }
 \arguments{
-\item{code}{The code to be completed by Groq. If not provided, it will use what's copied on
-the clipboard.}
+\item{code}{The code to be completed by Groq. If not provided,
+it will use what's copied on the clipboard.}
 
 \item{...}{Following arguments can be set manually or in .Reniv:
 \code{GROQ_API_KEY}is the GROQ API key.
@@ -30,7 +30,7 @@ Groq: Finish code
 }
 \examples{
 \dontrun{
-cat(coder("# A function to square each element of a vector\nsquare_each <- function("))
+cat(coder("# A function to square a vector\nsquare_each <- function("))
 }
 
 }

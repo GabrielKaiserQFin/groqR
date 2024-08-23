@@ -7,8 +7,8 @@
 debug(code = NULL, ...)
 }
 \arguments{
-\item{code}{The code to be analyzed by Groq. If not provided, it will use what's copied on
-the clipboard.}
+\item{code}{The code to be analyzed by Groq. If not provided,
+it will use what's copied on the clipboard.}
 
 \item{...}{Following arguments can be set manually or in .Reniv:
 \code{GROQ_API_KEY}is the GROQ API key.

@@ -2,7 +2,7 @@
 #'
 #' Note: See also `clearChatSession`.
 #'
-#' @param question The question to ask Groq.
+#' @param text The question to ask Groq.
 #' @param ... Following arguments can be set manually or in .Reniv:
 #'            `GROQ_API_KEY`is the GROQ API key.
 #'            `model` Model choice. Default is mistral-7b-instruct.
@@ -11,7 +11,7 @@
 #'            `maxTokens` The maximum integer of completion tokens returned.
 #'            `temperature` The amount of randomness in the response,
 #'            valued between 0 inclusive and 2 exclusive. Higher values are more
-#'            random, and lower values are more deterministic. 
+#'            random, and lower values are more deterministic.
 #'            `top_p` Nucleus sampling threshold, valued between 0 and 1.
 #'            `proxy` Default value is NULL.
 #'
@@ -25,8 +25,8 @@
 #' @export
 #'
 
-ask <- function(question = NULL, ...) {
-  if (is.null(question)) question <- clipr::read_clip(allow_non_interactive = TRUE)
+ask <- function(text = NULL, ...) {
+  if (is.null(text)) text <- clipr::read_clip(allow_non_interactive = TRUE)
 
-  return(APIcall(question, ...))
+  return(APIcall(text, ...))
 }

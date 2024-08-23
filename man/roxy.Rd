@@ -7,10 +7,10 @@
 roxy(code = NULL, inLineDocumentation = "roxygen2", ...)
 }
 \arguments{
-\item{code}{The code to be documented by Groq. If not provided, it will use what's copied on
-the clipboard.}
+\item{code}{The code to be documented by Groq. If not provided,
+it will use what's copied on the clipboard.}
 
-\item{inLineDocumentation}{any in line documentation style. Defaults to roxygen2 style.}
+\item{inLineDocumentation}{any documentation style. Defaults to roxygen2.}
 
 \item{...}{Following arguments can be set manually or in .Reniv:
 \code{GROQ_API_KEY}is the GROQ API key.

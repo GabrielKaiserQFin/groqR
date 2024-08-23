@@ -7,7 +7,8 @@
 rewriter(text = NULL, ...)
 }
 \arguments{
-\item{text}{The text to be rewritten by Groq. If not provided, it will use what's copied on the clipboard.}
+\item{text}{The text to be rewritten by Groq. If not provided,
+it will use what's copied on the clipboard.}
 
 \item{...}{Following arguments can be set manually or in .Reniv:
 \code{GROQ_API_KEY}is the GROQ API key.

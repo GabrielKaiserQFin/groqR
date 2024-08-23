@@ -1,7 +1,8 @@
 #' responseReturn
 #'
 #' @param raw the chatresponse to return
-#' @param type  Default is 1, which cats the output, type 2 is unchanged and type 3 returns the output to the clipboard and returns TRUE
+#' @param type  Default is 1, which returns the output to the clipboard
+#' and returns TRUE, type 2 is unchanged and type 3 cats the output.
 #'
 #' @importFrom clipr read_clip
 #'

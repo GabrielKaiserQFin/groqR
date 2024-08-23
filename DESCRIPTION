@@ -6,8 +6,8 @@ Authors@R:
     person("Gabriel", "Kaiser", , "quantresearch.gk@gmail.com", role = c("aut", "cre"))
 Maintainer: Gabriel Kaiser <quantresearch.gk@gmail.com>
 Description: A coding assistant using the super fast Groq API
-    <https://groq.com/> API. A set of functions and 'RStudio' Addins
-    that aim to help R developers.
+    <https://groq.com/> API. A set of functions and 'RStudio' Addins that
+    aim to help R developers.
 License: GPL (>= 3)
 URL: https://github.com/GabrielKaiserQFin/groqR
 BugReports: https://github.com/GabrielKaiserQFin/groqR/issues

@@ -4,10 +4,10 @@
 \alias{ask}
 \title{Ask Groq}
 \usage{
-ask(question = NULL, ...)
+ask(text = NULL, ...)
 }
 \arguments{
-\item{question}{The question to ask Groq.}
+\item{text}{The question to ask Groq.}
 
 \item{...}{Following arguments can be set manually or in .Reniv:
 \code{GROQ_API_KEY}is the GROQ API key.

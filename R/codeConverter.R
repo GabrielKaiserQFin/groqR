@@ -16,7 +16,7 @@
 #'            `maxTokens` The maximum integer of completion tokens returned.
 #'            `temperature` The amount of randomness in the response,
 #'            valued between 0 inclusive and 2 exclusive. Higher values are more
-#'            random, and lower values are more deterministic. 
+#'            random, and lower values are more deterministic.
 #'            `top_p` Nucleus sampling threshold, valued between 0 and 1.
 #'            `proxy` Default value is NULL.
 #'
@@ -38,7 +38,8 @@ codeConverter <- function(code = NULL, from = "R", to = "Python", ...) {
   # Collapse the modified 'code' into a character vector
   code <- paste(code, collapse = "\n")
   # Create a prompt string by concatenating the input code
-  prompt <- paste0("Translate the following ", from, " code to ", to, ': "', code, '"')
+  prompt <- paste0("Translate the following ", from, " code to ", to, ': "',
+                   code, '"')
 
   return(APIcall(prompt, ...))
 }
