@@ -12,9 +12,12 @@
 #'            `maxTokens` The maximum integer of completion tokens returned.
 #'            `temperature` The amount of randomness in the response,
 #'            valued between 0 inclusive and 2 exclusive. Higher values are more
-#'            random, and lower values are more deterministic. 
+#'            random, and lower values are more deterministic.
 #'            `top_p` Nucleus sampling threshold, valued between 0 and 1.
 #'            `proxy` Default value is NULL.
+#'            `returnType` Default is 3, which returns the output to the 
+#'            clipboard and returns TRUE, type 2 is unchanged 
+#'            and type 3 cats the output.
 #'
 #' @examples
 #' \dontrun{
@@ -37,10 +40,6 @@ unitTests <- function(code = NULL, ...) {
   prompt <- paste0('Using testthat 3e, version over 3.0.0,
                    create a full testthat file,
                    with test cases for the following R code: "', code, '"')
-
-
-
-
 
   return(APIcall(prompt, ...))
 }

@@ -204,5 +204,5 @@ The model parameters can be adjusted by passing functional arguments.
   `"proxy_address:proxy_port"`. An example would be:
   `"81.94.255.13:8080"`
 
-- `returnType`: Default is 1, which returns the output to the clipboard
-  and returns TRUE, type 2 is unchanged and type 3 cats the output.
+- `returnType`: Default is 3, which returns the output to the clipboard
+  and returns TRUE, type 2 is unchanged and type 1 cats the output.

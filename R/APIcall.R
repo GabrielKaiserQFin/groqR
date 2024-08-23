@@ -9,9 +9,12 @@
 #'            `maxTokens` The maximum integer of completion tokens returned.
 #'            `temperature` The amount of randomness in the response,
 #'            valued between 0 inclusive and 2 exclusive. Higher values are more
-#'            random, and lower values are more deterministic. 
+#'            random, and lower values are more deterministic.
 #'            `top_p` Nucleus sampling threshold, valued between 0 and 1.
 #'            `proxy` Default value is NULL.
+#'            `returnType` Default is 3, which returns the output to the 
+#'            clipboard and returns TRUE, type 2 is unchanged 
+#'            and type 3 cats the output.
 #'
 #' @importFrom httr add_headers content content_type_json POST use_proxy
 #' @importFrom jsonlite fromJSON
@@ -19,6 +22,7 @@
 #'
 
 APIcall <- function(prompt, ...) {
+
   if (!exists("GROQ_API_KEY")) GROQ_API_KEY <- Sys.getenv("GROQ_API_KEY")
   if (!exists("systemRole")) systemRole <- Sys.getenv("GROQ_systemRole")
   if (!exists("model")) model <- Sys.getenv("GROQ_model")

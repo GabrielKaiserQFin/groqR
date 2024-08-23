@@ -14,6 +14,9 @@
 #'            random, and lower values are more deterministic.
 #'            `top_p` Nucleus sampling threshold, valued between 0 and 1.
 #'            `proxy` Default value is NULL.
+#'            `returnType` Default is 3, which returns the output to the
+#'            clipboard and returns TRUE, type 2 is unchanged
+#'            and type 3 cats the output.
 #'
 #' @examples
 #' \dontrun{

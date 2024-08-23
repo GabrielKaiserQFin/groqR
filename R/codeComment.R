@@ -10,9 +10,12 @@
 #'            `maxTokens` The maximum integer of completion tokens returned.
 #'            `temperature` The amount of randomness in the response,
 #'            valued between 0 inclusive and 2 exclusive. Higher values are more
-#'            random, and lower values are more deterministic. 
+#'            random, and lower values are more deterministic.
 #'            `top_p` Nucleus sampling threshold, valued between 0 and 1.
 #'            `proxy` Default value is NULL.
+#'            `returnType` Default is 3, which returns the output to the 
+#'            clipboard and returns TRUE, type 2 is unchanged 
+#'            and type 3 cats the output.
 #'
 #' @examples
 #' \dontrun{
@@ -34,10 +37,6 @@ codeComment <- function(code = NULL, ...) {
   # Create a prompt string by concatenating the input code
   prompt <- paste0('Add very short inline comments to the following code without
                    altering the code starting with a `#`: "', code, '"')
-
-
-
-
 
   return(APIcall(prompt, ...))
 }

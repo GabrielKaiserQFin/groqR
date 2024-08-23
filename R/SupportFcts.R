@@ -142,11 +142,10 @@ server <- function(input, session) {
         input = "text",
         title = "Enter returnType value:",
         inputPlaceholder = "e.g., 1",
-        value = "1"
+        value = "3"
       )
     })
 
-    # Store the parameters in `.GROQparams`
     observeEvent(input$returnType, {
       .GROQparams <- list(
         GROQ_API_KEY = ifelse(input$GROQ_API_KEY == "",
