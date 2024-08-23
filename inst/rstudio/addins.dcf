@@ -1,0 +1,50 @@
+Name: Ask Groq
+Description: Opens an interactive session to chat with a Groq
+Binding: runAddin_ask
+Interactive: true
+
+Name: Rewrite Text
+Description: Rewrites the selected text
+Binding: runAddin_rewriter
+Interactive: false
+
+Name: Comment code
+Description: Comment the selected code
+Binding: runAddin_codeComment
+Interactive: false
+
+Name: Create Unit Tests
+Description: Create unit tests for the selected code via testthat
+Binding: runAddin_unitTests
+Interactive: false
+
+Name: Create Name
+Description: Create a name for a function or variable for the selected code
+Binding: runAddin_nameIt
+Interactive: false
+
+Name: Code Documentation (roxygen2 style)
+Description: Document a function in roxygen2 format
+Binding: runAddin_codeDoc
+Interactive: false
+
+Name: Finish Code
+Description: Finishes the selected code
+Binding: runAddin_coder
+Interactive: false
+
+Name: Code debugging
+Description: Find issues in the selected ode
+Binding: runAddin_debug
+Interactive: false
+
+Name: Optimize code
+Description: Optimize the selected code
+Binding: runAddin_optimizer
+Interactive: false
+
+Name: Translate code
+Description: Translate the selected code from R to Pyhton
+Binding: runAddin_translater
+Interactive: false
+

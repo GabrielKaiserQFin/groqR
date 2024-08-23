@@ -1,0 +1,11 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^README\.Rmd$
+^README\.md$
+^\.github$
+^Perplexity\.Rproj$
+^perplexR\.Rproj$
+^cran-comments\.md$
+^CRAN-SUBMISSION$
+^groqR\.Rproj$
