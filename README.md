@@ -14,12 +14,11 @@ downloads](https://cranlogs.r-pkg.org/badges/groqR)](https://cran.rstudio.com/we
 <!-- badges: end -->
 
 The objective of `groqR` is to offer R users an intuitive interface for
-leveraging the capabilities of the Perplexity API [Pro
-subscription](https://docs.perplexity.ai/docs/pricing). Utilizing the
-supplied functions, users can enhance their programming productivity by
-incorporating Large Language Models. Furthermore, `groqR` includes a
-RStudio addin, enabling seamless interactive integration of Perplexity
-prompts.
+leveraging the capabilities of the [Groq API](https://groq.com/).
+Utilizing the supplied functions, users can enhance their programming
+productivity by incorporating Large Language Models. Furthermore,
+`groqR` includes a RStudio addin, enabling seamless interactive
+integration of Groq prompts.
 
 ## Installation
 
@@ -163,14 +162,13 @@ nameIt("function(x) scale(x)^2")
 
 ## Groq Model Arguments
 
-The parameters of perplexity models can be adjusted by passing
-functional arguments.
+The model parameters can be adjusted by passing functional arguments.
 
 - `text` or `code`: The text or code input required for processing by
   Groq. If omitted, Groq will utilize the content currently held in the
   clipboard.
 
-- `GROQ_API_KEY`: The PERPLEXITY API key. By default it is set to
+- `GROQ_API_KEY`: The Groq API key. By default it is set to
   `Sys.getenv("GROQ_API_KEY")`.
 
 - `model`: model choice. Default is “`llama-3.1-70b-versatile`” but
@@ -200,8 +198,8 @@ functional arguments.
   of the tokens with top_p probability mass. You should either alter
   temperature or top_p, but not both.
 
-- `proxy`: Default value is NULL. To execute Perplexity queries via a
-  proxy server, specify the proxy address and port as an argument to the
+- `proxy`: Default value is NULL. To execute Groq queries via a proxy
+  server, specify the proxy address and port as an argument to the
   function instance. Use the following format:
   `"proxy_address:proxy_port"`. An example would be:
   `"81.94.255.13:8080"`
