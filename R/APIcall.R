@@ -24,6 +24,7 @@
 APIcall <- function(prompt, ...) {
 
   args <- list(...)
+
   for (i in names(args)) {
       assign(i, args[[i]])
   }

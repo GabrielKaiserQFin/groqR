@@ -1,7 +1,7 @@
 #' responseReturn
 #'
 #' @param raw the chatresponse to return
-#' @param type  Default is 1, which returns the output to the clipboard
+#' @param type  Default is 3, which returns the output to the clipboard
 #' and returns TRUE, type 2 is unchanged and type 3 cats the output.
 #'
 #' @importFrom clipr read_clip
@@ -10,13 +10,13 @@
 #'
 #'
 responseReturn <- function(raw, type) {
-  if (type == 3) {
+  if (type == 1) {
     # Function 'cat' is used to concatenate 'raw' and return the result
     return(cat(raw, sep = "\n"))
   } else if (type == 2) {
     # Here, 'raw' is returned without any modification
     return(raw)
-  } else if (type == 1) {
+  } else if (type == 3) {
     # Here, 'raw' data is written to the clipboard
     clipr::write_clip(paste(raw, sep = "\n"), allow_non_interactive = TRUE)
     return(TRUE)

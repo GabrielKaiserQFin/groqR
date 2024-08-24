@@ -113,7 +113,7 @@ execAddin_ask <- function() {
       chatResponse <- ask(input$question,
         model = input$model,
         maxTokens = input$maxTokens,
-        temperature = input$temperature, returnType = 1
+        temperature = input$temperature, returnType = 2
       )
       updateTextAreaInput(session, "response", value = chatResponse)
     })

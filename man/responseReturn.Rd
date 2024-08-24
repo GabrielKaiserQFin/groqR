@@ -9,7 +9,7 @@ responseReturn(raw, type)
 \arguments{
 \item{raw}{the chatresponse to return}
 
-\item{type}{Default is 1, which returns the output to the clipboard
+\item{type}{Default is 3, which returns the output to the clipboard
 and returns TRUE, type 2 is unchanged and type 3 cats the output.}
 }
 \value{
