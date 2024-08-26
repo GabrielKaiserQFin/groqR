@@ -4,6 +4,13 @@
 ########  Set Model Parameters  ########
 ######################################## .
 
+.onAttach <- function(libname, pkgname) {
+    packageStartupMessage("Welcome to groqR!")
+    on_startup()
+}
+
+
+
 #'
 #' User Interface
 #'
@@ -36,7 +43,7 @@ ui <- fluidPage( # Define UI
 #' @importFrom shinyWidgets inputSweetAlert
 #'
 #'
-server <- function(input, session) {
+server <- function(input, output, session) {
   # Define server logic
   observeEvent(input$btn_set_params, {
     # Input for GROQ_API_KEY
@@ -194,7 +201,7 @@ Update.Renviron <- function(my_list, renviron_path =
   }
 
   # Create lines to write from the list
-  new_lines <- vapply(names(my_list), function(name) {
+  new_lines <- sapply(names(my_list), function(name) {
     paste0(name, " = ", my_list[[name]])
   })
 
@@ -216,4 +223,41 @@ Update.Renviron <- function(my_list, renviron_path =
   # Notify the user
   cat("The following environment variables were added to .Renviron:\n")
   cat(new_lines, sep = "\n")
+}
+
+
+#' Function to Handle Package Startup Logic
+#'
+#' The `on_startup` function is designed to execute certain actions when the package is loaded.
+#' Specifically, it checks for the presence of required environment variables related to the GROQ system.
+#' If any of these variables are missing, it will launch a Shiny application.
+#'
+#' @details
+#' The function checks the following environment variables:
+#' - `GROQ_model`
+#' - `GROQ_systemRole`
+#' - `GROQ_API_KEY`
+#' - `GROQ_maxTokens`
+#' - `GROQ_temperature`
+#' - `GROQ_top_p`
+#' - `GROQ_returnType`
+#'
+#' If any of these variables are not set (i.e., are empty strings), the function triggers the
+#' launch of a Shiny application defined by the `ui` and `server` components.
+#'
+#' @seealso
+#' `shiny::shinyApp`
+#'
+#' @importFrom shiny shinyApp
+#'
+#' @export
+on_startup <- function() {
+    # Set params if necessary
+    if (any(Sys.getenv(c(
+        "GROQ_model", "GROQ_systemRole", "GROQ_API_KEY",
+        "GROQ_maxTokens", "GROQ_temperature", "GROQ_top_p",
+        "GROQ_returnType"
+    )) == "")) {
+        shinyApp(ui = ui, server = server)
+    }
 }
