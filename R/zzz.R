@@ -5,7 +5,7 @@
 ######################################## .
 
 .onAttach <- function(libname, pkgname) {
-    packageStartupMessage("Welcome to groqR!")
+    packageStartupMessage("Welcome to groqR!\n\n\n############################################################\n#####   Execute `on_startup()` on the first-time run   #####\n############################################################\n\n\n")
     on_startup()
 }
 
