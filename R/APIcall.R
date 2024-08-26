@@ -22,13 +22,31 @@
 #'
 
 APIcall <- function(prompt, ...) {
+  
+  ######################################## .
+  #############  Important:  #############
+  ######################################## .
+  # set R_LIBS_USER and R_PROFILE_USER as enviromental user variable
 
   args <- list(...)
 
   for (i in names(args)) {
       assign(i, args[[i]])
   }
-
+  
+  # Set params if necessary
+  if (any(Sys.getenv(c(
+    "GROQ_model", "GROQ_systemRole", "GROQ_API_KEY",
+    "GROQ_maxTokens", "GROQ_temperature", "GROQ_top_p",
+    "GROQ_returnType"
+  )) == "") && any(Sys.getenv(c(
+    "model", "systemRole", "GROQ_API_KEY",
+    "maxTokens", "temperature", "top_p",
+    "returnType"
+  )))) {
+    shiny::shinyApp(ui = ui, server = server)
+  }
+  
   if (!exists("GROQ_API_KEY")) GROQ_API_KEY <- Sys.getenv("GROQ_API_KEY")
   if (!exists("systemRole")) systemRole <- Sys.getenv("GROQ_systemRole")
   if (!exists("model")) model <- Sys.getenv("GROQ_model")
@@ -49,7 +67,6 @@ APIcall <- function(prompt, ...) {
   if (nchar(returnType) == 0) stop("`returnType` not provided.")
 
   url <- "https://api.groq.com/openai/v1/chat/completions"
-
 
   messages <- list(
     list(role = "system", content = systemRole),
