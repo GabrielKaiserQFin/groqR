@@ -4,13 +4,7 @@
 ########  Set Model Parameters  ########
 ######################################## .
 
-#'
-#' Runs when attached such as by library() or require()
-#'                                                                                                                                                                                                                    
-#' This function is an attachment point for the 'onAttach' event in R packages. It is called when this package is attached to the R session."                                                                                                    
-#' @params libname The name of the library where this add-on is located.                                                                                                                                                                         
-#' @params pkgname The name of the package that is being attached.                                                                                                                                                                                                                                                                                                                                                                                                
-#'                                                                                                                                                                                                                    
+
 .onAttach <- function(libname, pkgname) {
     packageStartupMessage("Welcome to groqR!\n\n\n############################################################\n#####   Execute `on_startup()` on the first-time run   #####\n############################################################\n\n\n")
     on_startup()
