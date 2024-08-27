@@ -11,6 +11,8 @@ server(input, output, session)
 \arguments{
 \item{input}{The input values as they are submitted by the user.}
 
+\item{output}{The output values.}
+
 \item{session}{The Shiny session object.}
 }
 \description{

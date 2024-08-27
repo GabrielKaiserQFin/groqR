@@ -6,6 +6,14 @@
 \usage{
 .onAttach(libname, pkgname)
 }
+\arguments{
+\item{libname}{The name of the library where this add-on is located.}
+
+\item{pkgname}{The name of the package that is being attached.}
+}
 \description{
-Groq: Support Functions
+Runs when attached such as by library() or require()
+}
+\details{
+This function is an attachment point for the 'onAttach' event in R packages. It is called when this package is attached to the R session."
 }

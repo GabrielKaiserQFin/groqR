@@ -4,7 +4,13 @@
 ########  Set Model Parameters  ########
 ######################################## .
 
-
+#'
+#' Runs when attached such as by library() or require()
+#'
+#' This function is an attachment point for the 'onAttach' event in R packages. It is called when this package is attached to the R session."
+#' @param libname The name of the library where this add-on is located.
+#' @param pkgname The name of the package that is being attached.
+#'
 .onAttach <- function(libname, pkgname) {
     packageStartupMessage("Welcome to groqR!\n\n\n############################################################\n#####   Execute `on_startup()` on the first-time run   #####\n############################################################\n\n\n")
     on_startup()
@@ -22,8 +28,8 @@
 #'
 #'
 ui <- fluidPage( # Define UI
-  shiny::titlePanel("Set GROQ Parameters"),
-  shiny::actionButton("btn_set_params", "Set Parameters")
+    titlePanel("Set GROQ Parameters"),
+    actionButton("btn_set_params", "Set Parameters")
 )
 
 
@@ -36,6 +42,7 @@ ui <- fluidPage( # Define UI
 #' environment as environment variables and a notification message is displayed.
 #'
 #' @param input The input values as they are submitted by the user.
+#' @param output The output values.
 #' @param session The Shiny session object.
 #'
 #' @return NULL
