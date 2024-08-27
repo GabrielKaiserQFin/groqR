@@ -259,5 +259,6 @@ on_startup <- function() {
         "GROQ_returnType"
     )) == "")) {
         shinyApp(ui = ui, server = server)
+        message("GROQ parameters have been set, please restart R!")
     }
 }
