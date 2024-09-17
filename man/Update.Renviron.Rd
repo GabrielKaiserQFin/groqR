@@ -4,15 +4,9 @@
 \alias{Update.Renviron}
 \title{Update Renviron file with given list of variables and paths}
 \usage{
-Update.Renviron(
-  my_list,
-  renviron_path = file.path(Sys.getenv("HOME"), ".Renviron")
-)
+Update.Renviron(my_list)
 
-Update.Renviron(
-  my_list,
-  renviron_path = file.path(Sys.getenv("HOME"), ".Renviron")
-)
+Update.Renviron(my_list)
 }
 \arguments{
 \item{my_list}{A named list containing variables and their values to be added

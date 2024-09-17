@@ -194,13 +194,12 @@ server <- function(input, output, session) {
 #'
 #' @param my_list A named list containing variables and their values to be added
 #'            or updated in the .Renviron file.
-#' @param renviron_path The file path of the existing .Renviron file.
-#' (@code{file.path(Sys.getenv('HOME'), '.Renviron')}) by default.
 #'
 #' @return NULL
 #'
-Update.Renviron <- function(my_list, renviron_path =
-                                file.path(Sys.getenv("HOME"), ".Renviron")) {
+Update.Renviron <- function(my_list) {
+
+  renviron_path <- file.path(Sys.getenv("HOME"), ".Renviron")
   # Read existing content of .Renviron if it exists
   if (file.exists(renviron_path)) {
     renv_content <- readLines(renviron_path)
