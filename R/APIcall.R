@@ -22,7 +22,7 @@
 #'
 
 APIcall <- function(prompt, ...) {
-  
+
   ######################################## .
   #############  Important:  #############
   ######################################## .
@@ -33,17 +33,17 @@ APIcall <- function(prompt, ...) {
   for (i in names(args)) {
       assign(i, args[[i]])
   }
-  
+
   # Set params if necessary
   if (any(Sys.getenv(c(
     "GROQ_model", "GROQ_systemRole", "GROQ_API_KEY",
     "GROQ_maxTokens", "GROQ_temperature", "GROQ_top_p",
     "GROQ_returnType"
-  )) == "") && any(!sapply(c("model", "systemRole", "GROQ_API_KEY", 
+  )) == "") && any(!sapply(c("model", "systemRole", "GROQ_API_KEY",
     "maxTokens", "temperature", "top_p", "returnType"), exists))) {
     shiny::shinyApp(ui = ui, server = server)
   }
-  
+
   if (!exists("GROQ_API_KEY")) GROQ_API_KEY <- Sys.getenv("GROQ_API_KEY")
   if (!exists("systemRole")) systemRole <- Sys.getenv("GROQ_systemRole")
   if (!exists("model")) model <- Sys.getenv("GROQ_model")
@@ -289,47 +289,4 @@ server <- function(input, session) {
       stopApp()
     })
   })
-}
-
-#' Update Renviron file with given list of variables and paths
-#'
-#' @param my_list A named list containing variables and their values to be added
-#'            or updated in the .Renviron file.
-#' @param renviron_path The file path of the existing .Renviron file.
-#' (@code{file.path(Sys.getenv('HOME'), '.Renviron')}) by default.
-#'
-#' @return NULL
-#'
-Update.Renviron <- function(my_list, renviron_path =
-                                file.path(Sys.getenv("HOME"), ".Renviron")) {
-  # Read existing content of .Renviron if it exists
-  if (file.exists(renviron_path)) {
-    renv_content <- readLines(renviron_path)
-  } else {
-    renv_content <- character()
-  }
-
-  # Create lines to write from the list
-  new_lines <- vapply(names(my_list), function(name) {
-    paste0(name, " = ", my_list[[name]])
-  })
-
-  # Check for existing variables and replace them
-  for (i in seq_along(new_lines)) {
-    var_name <- names(my_list)[i]
-    existing <- grep(paste0("^", var_name, "="), renv_content)
-
-    if (length(existing) > 0) {
-      renv_content[existing] <- new_lines[i]
-    } else {
-      renv_content <- c(renv_content, new_lines[i])
-    }
-  }
-
-  # Write the updated content back to .Renviron
-  writeLines(renv_content, renviron_path)
-
-  # Notify the user
-  cat("The following environment variables were added to .Renviron:\n")
-  cat(new_lines, sep = "\n")
 }
