@@ -1,4 +1,4 @@
-#' Groq: Support Functions
+#' 'Groq': Support Functions
 
 ######################################## .
 ########  Set Model Parameters  ########
@@ -38,7 +38,7 @@ ui <- fluidPage( # Define UI
 #'
 #' This function handles the server logic for the UI, including the observeEvent
 #' for the action button. It asks the user to prompt various GROQ inputs.
-#' Once the 'returnType' parameter is set, the parameters are written to the
+#' Once the 'proxy' parameter is set, the parameters are written to the
 #' environment as environment variables and a notification message is displayed.
 #'
 #' @param input The input values as they are submitted by the user.
@@ -149,19 +149,7 @@ server <- function(input, output, session) {
       )
     })
 
-    # Input for returnType
-    observeEvent(input$proxy, {
-      inputSweetAlert(
-        session = session,
-        inputId = "returnType",
-        input = "text",
-        title = "Enter returnType value:",
-        inputPlaceholder = "e.g., 1",
-        value = "3"
-      )
-    })
-
-    observeEvent(input$returnType, {
+     observeEvent(input$proxy, {
       .GROQparams <- list(
         GROQ_API_KEY = ifelse(input$GROQ_API_KEY == "",
                               "https://console.groq.com/keys",
@@ -175,69 +163,25 @@ server <- function(input, output, session) {
         GROQ_temperature = ifelse(input$temperature == "", 1L,
                                   as.numeric(input$temperature)),
         GROQ_top_p = ifelse(input$top_p == "", 1L, as.numeric(input$top_p)),
-        GROQ_proxy = ifelse(input$proxy == "", NA, input$proxy),
-        GROQ_returnType = ifelse(input$returnType == "", 1L,
-                                 as.integer(input$returnType))
+        GROQ_proxy = ifelse(input$proxy == "", NA, input$proxy)
       )
       .GROQparams <- .GROQparams[!is.na(.GROQparams)]
       # Set each item in the list as an environment variable
-      Update.Renviron(.GROQparams)
+      print(.GROQparams)
 
-      showNotification("GROQ parameters have been set!", type = "message")
-      Sys.sleep(2)
+      showNotification("Copy GROQ parameters to your .Renvrion file and restart R!", type = "message")
+      Sys.sleep(3)
       stopApp()
     })
   })
 }
-
-#' Update Renviron file with given list of variables and paths
-#'
-#' @param my_list A named list containing variables and their values to be added
-#'            or updated in the .Renviron file.
-#'
-#' @return NULL
-#'
-Update.Renviron <- function(my_list) {
-
-  renviron_path <- file.path(Sys.getenv("HOME"), ".Renviron")
-  # Read existing content of .Renviron if it exists
-  if (file.exists(renviron_path)) {
-    renv_content <- readLines(renviron_path)
-  } else {
-    renv_content <- character()
-  }
-
-  # Create lines to write from the list
-  new_lines <- sapply(names(my_list), function(name) {
-    paste0(name, " = ", my_list[[name]])
-  })
-
-  # Check for existing variables and replace them
-  for (i in seq_along(new_lines)) {
-    var_name <- names(my_list)[i]
-    existing <- grep(paste0("^", var_name, "="), renv_content)
-
-    if (length(existing) > 0) {
-      renv_content[existing] <- new_lines[i]
-    } else {
-      renv_content <- c(renv_content, new_lines[i])
-    }
-  }
-
-  # Write the updated content back to .Renviron
-  writeLines(renv_content, renviron_path)
-
-  # Notify the user
-  cat("The following environment variables were added to .Renviron:\n")
-  cat(new_lines, sep = "\n")
-}
-
 
 #' Function to Handle Package Startup Logic
 #'
 #' The `on_startup` function is designed to execute certain actions when the package is loaded.
 #' Specifically, it checks for the presence of required environment variables related to the GROQ system.
 #' If any of these variables are missing, it will launch a Shiny application.
+#'
 #'
 #' @details
 #' The function checks the following environment variables:
@@ -247,7 +191,7 @@ Update.Renviron <- function(my_list) {
 #' - `GROQ_maxTokens`
 #' - `GROQ_temperature`
 #' - `GROQ_top_p`
-#' - `GROQ_returnType`
+#' - `GROQ_proxy`
 #'
 #' If any of these variables are not set (i.e., are empty strings), the function triggers the
 #' launch of a Shiny application defined by the `ui` and `server` components.
@@ -257,15 +201,17 @@ Update.Renviron <- function(my_list) {
 #'
 #' @importFrom shiny shinyApp
 #'
+#' @return None
+#'
 #' @export
+#'
 on_startup <- function() {
     # Set params if necessary
     if (any(Sys.getenv(c(
         "GROQ_model", "GROQ_systemRole", "GROQ_API_KEY",
-        "GROQ_maxTokens", "GROQ_temperature", "GROQ_top_p",
-        "GROQ_returnType"
+        "GROQ_maxTokens", "GROQ_temperature", "GROQ_top_p"
     )) == "")) {
         shinyApp(ui = ui, server = server)
-        packageStartupMessage("GROQ parameters have been set, please restart R!")
     }
 }
+

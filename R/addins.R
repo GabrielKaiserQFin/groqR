@@ -1,4 +1,4 @@
-#' Run a Groq RStudio Addin
+#' Run a 'Groq' RStudio Addin
 #'
 #' @param FUN The function to be executed.
 #'
@@ -29,8 +29,7 @@ execAddin <- function(FUN) {
   inputText <- paste0(inputText, collapse = "\n")
 
 
-  return(addinFUN(inputText, returnType = Sys.getenv("GROQ_returnType"),
-                  maxTokens = 800))
+  return(addinFUN(inputText, maxTokens = 800))
 }
 
 runAddin_ask <- function() execAddin_ask()
@@ -45,9 +44,9 @@ runAddin_optimizer <- function() execAddin("optimizer")
 runAddin_codeConverter <- function() execAddin("codeConverter")
 
 
-#' Ask Groq
+#' Ask 'Groq'
 #'
-#' Opens an interactive chat session with Groq
+#' Opens an interactive chat session with 'Groq'
 #'
 #' @importFrom miniUI gadgetTitleBar miniPage
 #' @importFrom shiny actionButton br icon observeEvent onStop runGadget stopApp
@@ -58,7 +57,7 @@ runAddin_codeConverter <- function() execAddin("codeConverter")
 execAddin_ask <- function() {
   ui <- miniPage(wellPanel(
     # Sets the title.
-    gadgetTitleBar("Ask the Groq", NULL),
+    gadgetTitleBar("Ask the 'Groq'", NULL),
     # Sets the CSS style to have a horizontal scrollbar if the content overflows
     style = "overflow-x: scroll",
     # Add a line break in HTML.
@@ -113,7 +112,7 @@ execAddin_ask <- function() {
       chatResponse <- ask(input$question,
         model = input$model,
         maxTokens = input$maxTokens,
-        temperature = input$temperature, returnType = 2
+        temperature = input$temperature
       )
       updateTextAreaInput(session, "response", value = chatResponse)
     })

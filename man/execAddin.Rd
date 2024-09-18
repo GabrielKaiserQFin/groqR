@@ -2,7 +2,7 @@
 % Please edit documentation in R/addins.R
 \name{execAddin}
 \alias{execAddin}
-\title{Run a Groq RStudio Addin}
+\title{Run a 'Groq' RStudio Addin}
 \usage{
 execAddin(FUN)
 }
@@ -10,5 +10,5 @@ execAddin(FUN)
 \item{FUN}{The function to be executed.}
 }
 \description{
-Run a Groq RStudio Addin
+Run a 'Groq' RStudio Addin
 }

@@ -1,7 +1,7 @@
 #' Translate Code from One Language to Another
 #'
 #' This function takes a snippet of code and translates it from one programming
-#' language to another using GROQ API. The default behavior is to read the code
+#' language to another using 'Groq API'. The default behavior is to read the code
 #' from the clipboard and translate from R to Python.
 #'
 #' @param code A string containing the code to be translated.
@@ -9,7 +9,7 @@
 #' @param from any programming language. Defaults to "R".
 #' @param to any programming language. Defaults to "Python".
 #' @param ... Following arguments can be set manually or in .Renviron:
-#'            `GROQ_API_KEY`is the GROQ API key.
+#'            `GROQ_API_KEY`is the 'Groq API' key.
 #'            `model` Model choice. Default is mistral-7b-instruct.
 #'            `systemRole` System role; Default is: "You are a helpful assistant
 #'            with extensive knowledge of R programming."
@@ -19,9 +19,7 @@
 #'            random, and lower values are more deterministic.
 #'            `top_p` Nucleus sampling threshold, valued between 0 and 1.
 #'            `proxy` Default value is NULL.
-#'            `returnType` Default is 3, which returns the output to the 
-#'            clipboard and returns TRUE, type 2 is unchanged 
-#'            and type 3 cats the output.
+#'
 #'
 #' @importFrom clipr read_clip
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/zzz.R
 \name{.onAttach}
 \alias{.onAttach}
-\title{Groq: Support Functions}
+\title{'Groq': Support Functions}
 \usage{
 .onAttach(libname, pkgname)
 }

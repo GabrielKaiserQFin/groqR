@@ -1,5 +1,5 @@
-Name: Ask Groq
-Description: Opens an interactive session to chat with a Groq
+Name: Ask 'Groq'
+Description: Opens an interactive session to chat with a 'Groq'
 Binding: runAddin_ask
 Interactive: true
 

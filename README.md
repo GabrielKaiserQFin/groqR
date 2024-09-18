@@ -14,11 +14,11 @@ downloads](https://cranlogs.r-pkg.org/badges/groqR)](https://cran.rstudio.com/we
 <!-- badges: end -->
 
 The objective of `groqR` is to offer R users an intuitive interface for
-leveraging the capabilities of the [Groq API](https://groq.com/).
+leveraging the capabilities of the [‘Groq API’](https://groq.com/).
 Utilizing the supplied functions, users can enhance their programming
 productivity by incorporating Large Language Models. Furthermore,
 `groqR` includes a RStudio addin, enabling seamless interactive
-integration of Groq prompts.
+integration of ‘Groq’ prompts.
 
 ## Installation
 
@@ -38,11 +38,11 @@ devtools::install_github("GabrielKaiserQFin/groqR")
 
 ## Requirements
 
-You need to create a free account and a free API key by accessing [Groq
-API page](https://console.groq.com/keys), otherwise you can not use
-`{groqR}`.
+You need to create a free account and a free ‘API’ key by accessing
+[‘Groq API’ page](https://console.groq.com/keys), otherwise you can not
+use `{groqR}`.
 
-To use your API key in `{groqR}`, you need to configure the function
+To use your ‘API’ key in `{groqR}`, you need to configure the function
 parameters in the .Renviron file. At the first run a shiny app will
 start, and you will be guided through a setup process.
 
@@ -50,7 +50,7 @@ start, and you will be guided through a setup process.
 
 ### Addins:
 
-In your RStudio go to **Addins** and select **ASK Groq**, which will
+In your RStudio go to **Addins** and select **ASK ‘Groq’**, which will
 open an interactive prompt in your Viewer, where you can choose between
 different models and adjust the temperature and the number of tokens to
 be used. Just ask anything of you interest and hit the confirm button.
@@ -125,7 +125,8 @@ roxy("z <- function(x) scale(x)^2", inLineDocumentation = NULL)
 
 ### coder:
 
-This is a basic example which shows you how to finish your code by Groq.
+This is a basic example which shows you how to finish your code by
+‘Groq’.
 
 ``` r
 coder("# A function to scale a vector and square the resulting z-score z2 <- function(")
@@ -160,15 +161,15 @@ nameIt("function(x) scale(x)^2")
 [1] TRUE
 ```
 
-## Groq Model Arguments
+## ‘Groq’ Model Arguments
 
 The model parameters can be adjusted by passing functional arguments.
 
 - `text` or `code`: The text or code input required for processing by
-  Groq. If omitted, Groq will utilize the content currently held in the
-  clipboard.
+  ‘Groq’. If omitted, ‘Groq’ will utilize the content currently held in
+  the clipboard.
 
-- `GROQ_API_KEY`: The Groq API key. By default it is set to
+- `GROQ_API_KEY`: The ‘Groq API’ key. By default it is set to
   `Sys.getenv("GROQ_API_KEY")`.
 
 - `model`: model choice. Default is “`llama-3.1-70b-versatile`” but
@@ -182,7 +183,7 @@ The model parameters can be adjusted by passing functional arguments.
   helpful assistant”.
 
 - `maxTokens`: The maximum integer of completion tokens returned by the
-  API. The total number of tokens requested in max_tokens plus the
+  ‘API’. The total number of tokens requested in max_tokens plus the
   number of prompt tokens sent in messages must not exceed the context
   window token limit of model requested. If left unspecified, then the
   model will generate tokens until either it reaches its stop token or
@@ -198,7 +199,7 @@ The model parameters can be adjusted by passing functional arguments.
   of the tokens with top_p probability mass. You should either alter
   temperature or top_p, but not both.
 
-- `proxy`: Default value is NULL. To execute Groq queries via a proxy
+- `proxy`: Default value is NULL. To execute ‘Groq’ queries via a proxy
   server, specify the proxy address and port as an argument to the
   function instance. Use the following format:
   `"proxy_address:proxy_port"`. An example would be:

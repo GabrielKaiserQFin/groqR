@@ -2,10 +2,10 @@
 % Please edit documentation in R/addins.R
 \name{execAddin_ask}
 \alias{execAddin_ask}
-\title{Ask Groq}
+\title{Ask 'Groq'}
 \usage{
 execAddin_ask()
 }
 \description{
-Opens an interactive chat session with Groq
+Opens an interactive chat session with 'Groq'
 }

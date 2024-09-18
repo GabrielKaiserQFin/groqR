@@ -1,4 +1,4 @@
-# A Coding Assistant using the Groq API
+# A Coding Assistant using the 'Groq API'
 #' @keywords internal
 "_PACKAGE"
 

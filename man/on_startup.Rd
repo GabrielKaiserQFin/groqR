@@ -6,6 +6,9 @@
 \usage{
 on_startup()
 }
+\value{
+None
+}
 \description{
 The \code{on_startup} function is designed to execute certain actions when the package is loaded.
 Specifically, it checks for the presence of required environment variables related to the GROQ system.
@@ -20,7 +23,7 @@ The function checks the following environment variables:
 \item \code{GROQ_maxTokens}
 \item \code{GROQ_temperature}
 \item \code{GROQ_top_p}
-\item \code{GROQ_returnType}
+\item \code{GROQ_proxy}
 }
 
 If any of these variables are not set (i.e., are empty strings), the function triggers the
