@@ -12,9 +12,10 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+
 ```
 
-# groqR
+# groqR <a href="https://github.com/GabrielKaiserQFin/groqR"><img src="man/figures/logo.png" align="right" height="138" /></a>
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/groqR)](https://CRAN.R-project.org/package=groqR)

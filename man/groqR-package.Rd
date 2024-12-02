@@ -6,6 +6,8 @@
 \alias{groqR-package}
 \title{groqR: A Coding Assistant using the Fast AI Inference 'Groq'}
 \description{
+\if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
+
 A comprehensive suite of functions and 'RStudio' Add-ins leveraging the capabilities of open-source Large Language Models (LLMs) to support R developers. These functions offer a range of utilities, including text rewriting, translation, and general query capabilities. Additionally, the programming-focused functions provide assistance with debugging, translating, commenting, documenting, and unit testing code, as well as suggesting variable and function names, thereby streamlining the development process.
 }
 \seealso{
