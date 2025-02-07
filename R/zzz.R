@@ -49,9 +49,13 @@ ui <- fluidPage( # Define UI
 #'
 #' @importFrom shiny observeEvent showNotification stopApp fluidPage
 #' @importFrom shinyWidgets inputSweetAlert
+#' @importFrom jsonlite fromJSON
+#' @importFrom httr GET add_headers content content_type_json POST use_proxy
 #'
 #'
 server <- function(input, output, session) {
+
+
   # Define server logic
   observeEvent(input$btn_set_params, {
     # Input for GROQ_API_KEY
@@ -65,28 +69,33 @@ server <- function(input, output, session) {
       showCloseButton = TRUE
     )
 
-    # Select model from options
-    observeEvent(input$GROQ_API_KEY, {
-      inputSweetAlert(
-        session = session,
-        inputId = "model",
-        input = "select",
-        inputOptions = c(
-          "llama-3.1-70b-versatile",
-          "llama-3.1-8b-instant",
-          "llama3-groq-70b-8192-tool-use-preview",
-          "llama3-groq-8b-8192-tool-use-preview",
-          "llama-guard-3-8b",
-          "llama3-70b-8192",
-          "llama3-8b-8192",
-          "mixtral-8x7b-32768",
-          "gemma-7b-it",
-          "gemma2-9b-it",
-          "whisper-large-v3"
-        ),
-        title = "Select a model:"
-      )
-    })
+
+      # Select model from options
+      observeEvent(input$GROQ_API_KEY, {
+          print(input$GROQ_API_KEY)
+
+          url <- "https://api.groq.com/openai/v1/models"
+          api_key <- input$GROQ_API_KEY
+          # Set headers
+          headers <- add_headers(
+              Authorization = paste("Bearer", api_key),
+              `Content-Type` = "application/json"
+          )
+
+          # Send GET request
+          response <- GET(url, headers)
+          # Parse and print JSON response
+          content <- content(response, as = "text", encoding = "UTF-8")
+          content = fromJSON(content)$data
+
+          inputSweetAlert(
+              session = session,
+              inputId = "model",
+              input = "select",
+              inputOptions = content$id,
+              title = "Select a model:"
+          )
+      })
 
     # Input for systemRole
     observeEvent(input$model, {

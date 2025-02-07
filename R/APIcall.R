@@ -88,7 +88,7 @@ APIcall <- function(prompt, ...) {
       model       = model[1],
       temperature = as.numeric(temperature[1]),
       max_tokens  = as.integer(maxTokens[1]),
-      top_p       = as.integer(top_p[1]),
+      top_p       = as.numeric(top_p[1]),
       stream      = FALSE,
       stop        = NULL
     ),

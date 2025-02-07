@@ -48,6 +48,15 @@ You need to create a free account and a free 'API' key by accessing ['Groq API' 
 
 To use your 'API' key in `{groqR}`, you need to configure the function parameters in the .Renviron file. At the first run a shiny app will start, and you will be guided through a setup process.
 
+## Initial Steps
+
+On the first use, the `on_startup` function will initiate and guide you through setting up the necessary environment variables for the GROQ system.
+
+```{r}
+knitr::include_graphics("man/figures/output.gif")
+```
+
+
 ## Examples
 
 ### Addins:
