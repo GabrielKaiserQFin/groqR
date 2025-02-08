@@ -77,7 +77,6 @@ This is a basic example which shows you how to ask any question.
 
 ``` r
 ask("What do you think about Large language models?")
-[1] "Large language models are powerful tools with great potential."
 ```
 
 **rewriter:**
@@ -86,7 +85,6 @@ This is a basic example which shows you how to rewrite text.
 
 ``` r
 rewriter("Dear Recipient, I hope this message finds you well.")
-[1] "Dear Recipient, I hope this message finds you well."
 ```
 
 **translater:**
@@ -95,7 +93,6 @@ This is a basic example which shows you how to translate text.
 
 ``` r
 translater("Dear Recipient, I hope this message finds you well.", toLanguage = "Spanish")
-[1] "Estimado destinatario, espero que este mensaje le encuentre bien."
 ```
 
 **codeComment:**
@@ -104,7 +101,6 @@ This is a basic example which shows you how to document code.
 
 ``` r
 codeComment("z <- function(x) scale(x)^2")
-[1] "z <- function(x) scale(x)^2 # squares scaled x"
 ```
 
 **unitTests:**
@@ -116,15 +112,12 @@ function.
 unitTests("z <- function(x) scale(x)^2")
 ```
 
-    [1] "```r\nlibrary(testthat)\n\ntest_z <- function() {\n  test_that(\"z function works correctly\", {\n    x <- rnorm(100)\n    z_x <- z(x)\n    testthat::expect_equal(z_x, (scale(x))^2)\n  })\n\n  test_that(\"z function works for constant input\", {\n    x <- rep(1, 100)\n    z_x <- z(x)\n    testthat::expect_equal(z_x, rep(0, 100))\n  })\n\n  test_that(\"z function works for NA input\", {\n    x <- c(rnorm(100), NA"
-
 **debug:**
 
 This is a basic example which shows you how to find bugs in your code.
 
 ``` r
 debug("z <- function(x) scale(x)2")
-[1] "The issue is the missing operator between `scale(x)` and `2`. It should be `*` for multiplication. \n\nCorrected code: `z <- function(x) scale(x) * 2`"
 ```
 
 **roxy:**
@@ -136,8 +129,6 @@ Formatting style is `Roxygen2` but can be set to anything.
 roxy("z <- function(x) scale(x)^2")
 ```
 
-    [1] "```r\n#' Squares Scaled Input Values\n#'\n#' This function takes input values, scales them, and then squares the result.\n#'\n#' @param x input values to be scaled and squared\n#'\n#' @return squared scaled input values\n#' @examples\n#' z <- function(x) {\n#'   scale(x)^2\n#' }\n```"
-
 **coder:**
 
 This is a basic example which shows you how to finish your code by
@@ -147,8 +138,6 @@ This is a basic example which shows you how to finish your code by
 coder("# A function to scale a vector and square the resulting z-score z2 <- function(")
 ```
 
-    [1] "\"`x) {((x - mean(x)) / sd(x))^2}`\" \n\nSo the full code is: \n```r\nz2 <- function(x) {((x - mean(x)) / sd(x))^2}\n```"
-
 **optimizer:**
 
 This is a basic example which shows you how to optimize your code.
@@ -156,8 +145,6 @@ This is a basic example which shows you how to optimize your code.
 ``` r
 optimizer("z <- function(x) scale(x)^2")
 ```
-
-    [1] "```r\nz <- function(x) (x - mean(x))^2 / var(x)\n```"
 
 **codeConverter:**
 
@@ -167,8 +154,6 @@ This is a basic example which shows you how to translate your code.
 codeConverter("z <- function(x) scale(x)^2", from = "R", to = "Python")
 ```
 
-    [1] "```python\nimport numpy as np\n\ndef z(x):\n    return np.square((x - np.mean(x)) / np.std(x))\n```"
-
 **nameIt:**
 
 This is a basic example which shows you how to create a function or
@@ -176,7 +161,6 @@ variable name.
 
 ``` r
 nameIt("function(x) scale(x)^2")
-[1] "`variance` or `squaredScale`"
 ```
 
 ## Groq Model Arguments
@@ -197,22 +181,22 @@ The model parameters can be adjusted by passing functional arguments.
 ``` r
 modelCall()[,1:5]
                               id object    created        owned_by active
-1   llama-3.2-11b-vision-preview  model 1727226869            Meta   TRUE
-2          llama-3.3-70b-specdec  model 1733505017            Meta   TRUE
-3                llama3-70b-8192  model 1693721698            Meta   TRUE
-4         whisper-large-v3-turbo  model 1728413088          OpenAI   TRUE
-5        llama-3.3-70b-versatile  model 1733447754            Meta   TRUE
-6   llama-3.2-90b-vision-preview  model 1727226914            Meta   TRUE
-7                 llama3-8b-8192  model 1693721698            Meta   TRUE
-8               whisper-large-v3  model 1693721698          OpenAI   TRUE
-9           llama-3.2-3b-preview  model 1727224290            Meta   TRUE
-10    distil-whisper-large-v3-en  model 1693721698    Hugging Face   TRUE
-11          llama-3.1-8b-instant  model 1693721698            Meta   TRUE
-12 deepseek-r1-distill-llama-70b  model 1737924940 DeepSeek / Meta   TRUE
-13              llama-guard-3-8b  model 1693721698            Meta   TRUE
-14                  gemma2-9b-it  model 1693721698          Google   TRUE
-15            mixtral-8x7b-32768  model 1693721698      Mistral AI   TRUE
-16          llama-3.2-1b-preview  model 1727224268            Meta   TRUE
+1                llama3-70b-8192  model 1693721698            Meta   TRUE
+2               whisper-large-v3  model 1693721698          OpenAI   TRUE
+3           llama-3.2-1b-preview  model 1727224268            Meta   TRUE
+4          llama-3.3-70b-specdec  model 1733505017            Meta   TRUE
+5   llama-3.2-11b-vision-preview  model 1727226869            Meta   TRUE
+6     distil-whisper-large-v3-en  model 1693721698    Hugging Face   TRUE
+7               llama-guard-3-8b  model 1693721698            Meta   TRUE
+8                   gemma2-9b-it  model 1693721698          Google   TRUE
+9        llama-3.3-70b-versatile  model 1733447754            Meta   TRUE
+10 deepseek-r1-distill-llama-70b  model 1737924940 DeepSeek / Meta   TRUE
+11                llama3-8b-8192  model 1693721698            Meta   TRUE
+12        whisper-large-v3-turbo  model 1728413088          OpenAI   TRUE
+13  llama-3.2-90b-vision-preview  model 1727226914            Meta   TRUE
+14            mixtral-8x7b-32768  model 1693721698      Mistral AI   TRUE
+15          llama-3.2-3b-preview  model 1727224290            Meta   TRUE
+16          llama-3.1-8b-instant  model 1693721698            Meta   TRUE
 ```
 
 - `systemRole`: System role for model. Default is set to “You are a

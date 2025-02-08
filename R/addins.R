@@ -55,7 +55,8 @@ runAddin_codeConverter <- function() execAddin("codeConverter")
 #' @importFrom utils getFromNamespace
 #'
 execAddin_ask <- function() {
-  ui <- miniPage(wellPanel(
+
+  uiAddin <- miniPage(wellPanel(
     # Sets the title.
     gadgetTitleBar("Ask the 'Groq'", NULL),
     # Sets the CSS style to have a horizontal scrollbar if the content overflows
@@ -95,7 +96,7 @@ execAddin_ask <- function() {
     textAreaInput("response", "Response:", width = "100%", height = "150px")
   ))
 
-  server <- function(input, output, session) {
+  serverAddin <- function(input, output, session) {
     # This line sets up an observer for the `Ask` button.
     observeEvent(input$Ask, {
       chatResponse <- ask(input$question,
@@ -111,6 +112,6 @@ execAddin_ask <- function() {
     })
   }
 
-  runGadget(ui, server)
+  runGadget(uiAddin, serverAddin)
 }
 
