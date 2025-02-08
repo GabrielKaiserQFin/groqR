@@ -1,4 +1,8 @@
-# groqR 0.0.2
+# groqR 0.0.3
+
+* Update function `coder()`
+
+Added argument **language**.
 
 * Update Model
 

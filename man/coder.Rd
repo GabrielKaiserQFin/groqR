@@ -4,11 +4,13 @@
 \alias{coder}
 \title{'Groq': Finish code}
 \usage{
-coder(code = NULL, ...)
+coder(code = NULL, language = "R", ...)
 }
 \arguments{
 \item{code}{The code to be completed by 'Groq'. If not provided,
 it will use what's copied on the clipboard.}
+
+\item{language}{The programming language to code in. Defaults to R.}
 
 \item{...}{Following arguments can be set manually or in .Renviron:
 \code{GROQ_API_KEY}is the 'Groq API' key.

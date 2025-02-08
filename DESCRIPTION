@@ -1,7 +1,7 @@
 Type: Package
 Package: groqR
 Title: A Coding Assistant using the Fast AI Inference 'Groq'
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: 
     person("Gabriel", "Kaiser", , "quantresearch.gk@gmail.com", role = c("aut", "cre"))
 Maintainer: Gabriel Kaiser <quantresearch.gk@gmail.com>

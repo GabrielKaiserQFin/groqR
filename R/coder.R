@@ -2,6 +2,7 @@
 #'
 #' @param code The code to be completed by 'Groq'. If not provided,
 #' it will use what's copied on the clipboard.
+#' @param language The programming language to code in. Defaults to R.
 #' @param ... Following arguments can be set manually or in .Renviron:
 #'            `GROQ_API_KEY`is the 'Groq API' key.
 #'            `model` Model choice. Default is mistral-7b-instruct.
@@ -26,14 +27,14 @@
 #'
 #' @export
 #'
-coder <- function(code = NULL, ...) {
+coder <- function(code = NULL, language = "R",...) {
   if (is.null(code)) code <- clipr::read_clip(allow_non_interactive = TRUE)
   # Replace all double strings with single string
   code <- gsub('"', "'", code)
   # Collapse the modified 'code' into a character vector
   code <- paste(code, collapse = "\n")
   # Create a prompt string by concatenating the input code
-  prompt <- paste0('Complete the following R code: "', code, '"')
+  prompt <- paste0('Complete the following ',language,' code: "', code, '"')
 
   return(APIcall(prompt, ...))
 }

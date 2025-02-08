@@ -72,28 +72,15 @@ server <- function(input, output, session) {
 
       # Select model from options
       observeEvent(input$GROQ_API_KEY, {
-          print(input$GROQ_API_KEY)
 
-          url <- "https://api.groq.com/openai/v1/models"
-          api_key <- input$GROQ_API_KEY
-          # Set headers
-          headers <- add_headers(
-              Authorization = paste("Bearer", api_key),
-              `Content-Type` = "application/json"
-          )
-
-          # Send GET request
-          response <- GET(url, headers)
-          # Parse and print JSON response
-          content <- content(response, as = "text", encoding = "UTF-8")
-          content = fromJSON(content)$data
-
-          inputSweetAlert(
+          content <- modelCall(input$GROQ_API_KEY)
+           inputSweetAlert(
               session = session,
               inputId = "model",
               input = "select",
               inputOptions = content$id,
-              title = "Select a model:"
+              title = "Select a model:",
+              value = "llama-3.3-70b-versatile"
           )
       })
 
@@ -118,8 +105,8 @@ server <- function(input, output, session) {
         inputId = "maxTokens",
         input = "text",
         title = "Enter the maximum number of tokens:",
-        inputPlaceholder = "e.g., 1024",
-        value = "1024"
+        inputPlaceholder = "e.g., 100",
+        value = "100"
       )
     })
 
@@ -222,5 +209,42 @@ on_startup <- function() {
     )) == "")) {
         shinyApp(ui = ui, server = server)
     }
+}
+
+
+#' Function to query current models
+#'
+#' The `modelCall` function is designed to  query current models from Groq.
+#'
+#' @param api_key The Groq API key.
+#'
+#' @details
+#' The function checks the following environment variables:
+#' - `GROQ_API_KEY`
+#'
+#'
+#' @importFrom jsonlite fromJSON
+#' @importFrom httr GET
+#'
+#' @return model table
+#'
+#' @export
+#'
+modelCall <- function(api_key = Sys.getenv("GROQ_API_KEY")) {
+
+    url <- "https://api.groq.com/openai/v1/models"
+
+    # Set headers
+    headers <- add_headers(
+        Authorization = paste("Bearer", api_key),
+        `Content-Type` = "application/json"
+    )
+
+    # Send GET request
+    response <- GET(url, headers)
+    # Parse and print JSON response
+    content <- content(response, as = "text", encoding = "UTF-8")
+    content <- fromJSON(content)$data
+    return(content)
 }
 

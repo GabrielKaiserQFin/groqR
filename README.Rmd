@@ -24,7 +24,15 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/GabrielKaiserQFin/groqR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/GabrielKaiserQFin/groqR/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The objective of `groqR` is to offer R users an intuitive interface for leveraging the capabilities of the ['Groq API'](https://groq.com/). Utilizing the supplied functions, users can enhance their programming productivity by incorporating Large Language Models. Furthermore, `groqR` includes a RStudio addin, enabling seamless interactive integration of 'Groq' prompts.
+The objective of `groqR` is to offer R users an intuitive interface for leveraging the capabilities of the ['Groq API'](https://groq.com/). Utilizing the supplied functions, users can enhance their programming productivity by incorporating Large Language Models. Furthermore, `groqR` includes an RStudio addin, enabling seamless interactive integration of 'Groq' prompts.
+
+
+**Why Choose groqR?**  
+- ⚡ **10x faster** than GPU-based solutions  
+- 🔒 Enterprise-grade data privacy  
+- 📚 Supports multiple LLMs (DeepSeek-R1, Llama-3, Mixtral)  
+- 🆓 Free tier available  
+
 
 ## Installation
 
@@ -45,28 +53,30 @@ devtools::install_github("GabrielKaiserQFin/groqR")
 ## Requirements
 
 You need to create a free account and a free 'API' key by accessing ['Groq API' page](https://console.groq.com/keys), otherwise you can not use `{groqR}`.
-
-To use your 'API' key in `{groqR}`, you need to configure the function parameters in the .Renviron file. At the first run a shiny app will start, and you will be guided through a setup process.
+To use your 'API' key in `{groqR}`, you need to configure the function parameters in the .Renviron file. 
 
 ## Initial Steps
 
-On the first use, the `on_startup` function will initiate and guide you through setting up the necessary environment variables for the GROQ system.
+When you run it for the first time, a Shiny app will launch to guide you through the initial steps, setting up the necessary environment variables for the GROQ system.
 
-```{r}
+```{r echo = FALSE}
 knitr::include_graphics("man/figures/output.gif")
 ```
 
 
-## Examples
+## Addins
 
-### Addins:
+In your RStudio go to **Addins** and select **Ask 'Groq'**, which will open an interactive prompt in your Viewer, where you can choose between different models and adjust the temperature and the number of tokens to be used.
+Simply ask anything of your interest and hit the confirm button. The **Done** button lets you close the App.
+Similarly, you can mark or copy any text or code and use the other Addins as described below. Addin shortcuts will improve your efficiency.
 
-In your RStudio go to **Addins** and select **ASK 'Groq'**, which will open an interactive prompt in your Viewer, where you can choose between different models and adjust the temperature and the number of tokens to be used.
-Just ask anything of you interest and hit the confirm button. The **Done** button let you close the App.
-Similarly, you can mark or copy any text or code and use the other Addins as described below. Addin shortcuts will improve your efficiency even further.
+```{r, echo=FALSE, out.width="100%"}
+knitr::include_graphics("man/figures/Addin.png")
+```
 
+## How It Works
 
-### Ask:
+**ask:**
 
 This is a basic example which shows you how to ask any question.
 
@@ -75,7 +85,7 @@ ask("What do you think about Large language models?")
 ```
 
 
-### rewriter:
+**rewriter:**
 
 This is a basic example which shows you how to rewrite text.
 
@@ -83,7 +93,7 @@ This is a basic example which shows you how to rewrite text.
 rewriter("Dear Recipient, I hope this message finds you well.")
 ```
 
-### translater:
+**translater:**
 
 This is a basic example which shows you how to translate text.
 
@@ -91,7 +101,7 @@ This is a basic example which shows you how to translate text.
 translater("Dear Recipient, I hope this message finds you well.", toLanguage = "Spanish")
 ```
 
-### codeComment:
+**codeComment:**
 
 This is a basic example which shows you how to document code.
 
@@ -100,7 +110,7 @@ codeComment("z <- function(x) scale(x)^2")
 ```
 
 
-### unitTests:
+**unitTests:**
 
 This is a basic example which shows you how to build Unit Tests for your function.
 
@@ -108,7 +118,7 @@ This is a basic example which shows you how to build Unit Tests for your functio
 unitTests("z <- function(x) scale(x)^2")
 ```
 
-### debug:
+**debug:**
 
 This is a basic example which shows you how to find bugs in your code.
 
@@ -117,16 +127,16 @@ debug("z <- function(x) scale(x)2")
 ```
 
 
-### roxy:
+**roxy:**
 
-This is a basic example which shows you how to document your code. Formatting style is `Roxygen2` but can be set to NULL.
+This is a basic example which shows you how to document your code. Formatting style is `Roxygen2` but can be set to anything.
 
 ```{r Example roxy, cache=TRUE}
-roxy("z <- function(x) scale(x)^2", inLineDocumentation = NULL)
+roxy("z <- function(x) scale(x)^2")
 ```
 
 
-### coder:
+**coder:**
 
 This is a basic example which shows you how to finish your code by 'Groq'.
 
@@ -135,7 +145,7 @@ coder("# A function to scale a vector and square the resulting z-score z2 <- fun
 ```
 
 
-### optimizer:
+**optimizer:**
 
 This is a basic example which shows you how to optimize your code.
 
@@ -144,7 +154,7 @@ optimizer("z <- function(x) scale(x)^2")
 ```
 
 
-### codeConverter:
+**codeConverter:**
 
 This is a basic example which shows you how to translate your code.
 
@@ -153,7 +163,7 @@ codeConverter("z <- function(x) scale(x)^2", from = "R", to = "Python")
 ```
 
 
-### nameIt:
+**nameIt:**
 
 This is a basic example which shows you how to create a function or variable name.
 
@@ -163,26 +173,20 @@ nameIt("function(x) scale(x)^2")
 
 
 
-## 'Groq' Model Arguments
+## Groq Model Arguments
 
 The model parameters can be adjusted by passing functional arguments.
 
 *  `text` or `code`: The text or code input required for processing by 'Groq'. If omitted, 
-'Groq' will utilize the content currently held in the clipboard.
+the function will utilize the content currently held in the clipboard.
 
 * `GROQ_API_KEY`: The 'Groq API' key. By default it is set to `Sys.getenv("GROQ_API_KEY")`.
 
-*  `model`: model choice. Default is "`llama-3.1-70b-versatile`" but other available [models](https://console.groq.com/docs/models) are:
-                                     "`llama-3.1-8b-instant`",
-                                     "`llama3-groq-70b-8192-tool-use-preview`",
-                                     "`llama3-groq-8b-8192-tool-use-preview`",
-                                     "`llama-guard-3-8b`",
-                                     "`llama3-70b-8192`",
-                                     "`llama3-8b-8192`",
-                                     "`mixtral-8x7b-32768`",
-                                     "`gemma-7b-it`",
-                                     "`gemma2-9b-it`",
-                                     "`whisper-large-v3`"
+*  `model`: model choice. Choose any [model](https://console.groq.com/docs/models) and add it to your .Renviron file or as argument within the function in mind.
+
+```{r , cache=TRUE}
+modelCall()[,1:5]
+```
 
 *  `systemRole`: System role for model. Default is set to "You are a helpful assistant".
 
