@@ -4,7 +4,7 @@
 \alias{.onAttach}
 \title{'Groq': Support Functions}
 \usage{
-.onAttach(libname, pkgname = "groqR")
+.onAttach(libname, pkgname)
 }
 \arguments{
 \item{libname}{The name of the library where this add-on is located.}

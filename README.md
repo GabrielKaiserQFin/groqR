@@ -180,23 +180,7 @@ The model parameters can be adjusted by passing functional arguments.
 
 ``` r
 modelCall()[,1:5]
-                              id object    created        owned_by active
-1                llama3-70b-8192  model 1693721698            Meta   TRUE
-2               whisper-large-v3  model 1693721698          OpenAI   TRUE
-3           llama-3.2-1b-preview  model 1727224268            Meta   TRUE
-4          llama-3.3-70b-specdec  model 1733505017            Meta   TRUE
-5   llama-3.2-11b-vision-preview  model 1727226869            Meta   TRUE
-6     distil-whisper-large-v3-en  model 1693721698    Hugging Face   TRUE
-7               llama-guard-3-8b  model 1693721698            Meta   TRUE
-8                   gemma2-9b-it  model 1693721698          Google   TRUE
-9        llama-3.3-70b-versatile  model 1733447754            Meta   TRUE
-10 deepseek-r1-distill-llama-70b  model 1737924940 DeepSeek / Meta   TRUE
-11                llama3-8b-8192  model 1693721698            Meta   TRUE
-12        whisper-large-v3-turbo  model 1728413088          OpenAI   TRUE
-13  llama-3.2-90b-vision-preview  model 1727226914            Meta   TRUE
-14            mixtral-8x7b-32768  model 1693721698      Mistral AI   TRUE
-15          llama-3.2-3b-preview  model 1727224290            Meta   TRUE
-16          llama-3.1-8b-instant  model 1693721698            Meta   TRUE
+NULL
 ```
 
 - `systemRole`: System role for model. Default is set to “You are a
